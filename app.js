@@ -16,7 +16,6 @@ let playerScore = 0;
 let computerScore = 0;
 
 
-
 // The main brain of the game
 // A function that select the winner of the game based on the input of the player's selection and the computers selection
 // N>B this is only for a single game
