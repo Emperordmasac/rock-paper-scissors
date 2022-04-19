@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Lacquer', cursive;
+
+    background-color: black;
+}
+
+.container {
+    text-align: center;
+}
+
+.container__title {
+    font-size: 80px;
+}
+.sub__title {
+    font-size: 30px;
+}
+.cta {
+    margin-top: 20px;
+    margin-bottom: 80px;
+    font-size: 40px;
+    /* transform: translateY(-150px); */
+    /* opacity: 0; */
+}
+.game__buttons {
+    display: flex;
+    justify-content: center ;
+}
+.button {
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    margin: 0 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    transition: all 0.5s ease;
+}
+.button img {
+    width: 150px;
+}
+.button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+
+    box-shadow: 0 0 20px 1px;
+}
+
+.score__board,
+.score__container {
+    display: flex;
+    justify-content: center;
+}
+.label {
+    font-size: 30px;
+    margin-top: 80px;
+    padding: 0 40px;
+}
+.score {
+    padding: 0 90px;
+    font-size: 30px;
+}
+.scoreDisplay {
+    text-align: center;
+    margin-top: 60px;
+
+    /* transition:  all 0.6s ease; */
+    /* opacity: 0; */
+}
