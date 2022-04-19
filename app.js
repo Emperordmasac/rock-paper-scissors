@@ -53,13 +53,11 @@ function singleRound(playerSelection, computerSelection) {
 // A function that plays the singleRound for 5 times to determine the winner 
 function game() {
     for(let i = 1; i <6; i++) {
-        //The Move made by the player
-    
-        const playerSelection = prompt("choose your destiny")
-
-            singleRound(playerSelection, computerGame())
-            console.log(`result of ${i} game`)
-            console.table(`PlayerScore: ${playerScore} || ComputerScore: ${computerScore}`)
+        //The Move made by the player  
+        const playerSelection = prompt("choose your destiny");
+        singleRound(playerSelection, computerGame())
+        console.log(`result of ${i} game`)
+        console.log(`PlayerScore: ${playerScore} || ComputerScore: ${computerScore}`)
         
 
     }
