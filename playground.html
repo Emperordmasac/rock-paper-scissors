@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //An array of the available selections that the computer can make
+        const availableSelection = ["Rock", "Paper", "Scissors"]
+
+        //a function for computer to pick an option at random from the array of availableSelections
+        function computerGame() {
+            return availableSelection[~~(Math.random()*availableSelection.length)]
+        }
+
+        //variables to keep track of the game
+        let computerScore;
+        let playerScore;
+        let playerInput;
+        let computerInput;
+
+
+
+        //function to collect input from player
+        //which will allow player to play
+        function collectInput() {
+            playerInput = prompt('Rock || Paper || Scissors')
+            if((playerInput.toLowerCase()=="rock" )|| 
+            (playerInput.toLowerCase()=="paper" )||
+            (playerInput.toLowerCase()=="scissors")) {
+                console.log(oneRound(playerInput, computerInput))
+            }
+            else {
+                alert("Wrong Input detected!! \n Try Again")
+                //take note
+                collectInput();
+            }
+
+        }
+
+        //the logic of the game itself
+        function game() {
+            computerScore = 0;
+            playerScore = 0;
+            for(let i = 0; i<5; i++) {
+                collectInput();
+            }
+        
+            //display the result in console
+            // console.log(`>>> ${declareResult()}`)
+
+            // A function to declare the winner at the end of 5 games 
+            // function declareResult() {
+            //     if(playerScore===computerScore) {
+            //         alert(`TIE GAME \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`)
+            //         return `TIE GAME \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`
+            //     }
+            //     else if (playerScore > computerScore) {
+            //         alert(`GAME WON \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`)
+            //         return `GAME WON \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`
+            //     }
+            //     else {
+            //         alert(`GAME LOST \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`)
+            //         return `GAME LOST \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`
+            //     }
+            // }
+        }
+
+        //function tpo play ONE Round of the game
+        function oneRound(playerInput, computerInput) {
+            playerInput = playerInput.toLowerCase();
+            computerInput = computerGame().toLowerCase();
+            //logic of knowing the winner of one round
+            if(playerInput == computerInput) {
+                alert(`TIE GAME!!!!! \n${playerInput}\n${computerInput}`)
+                return `Computer Score: ${computerScore} \nYour Score: ${playerScore}`
+            } else if((playerInput =='rock' && computerInput == 'scissors') || 
+                      (playerInput == "paper" && computerInput == "rock") || 
+                      (playerInput == 'scissors' && computerInput == "paper")) {
+                          alert(`YOU WON!!!!! \n${playerInput} beats ${computerInput}`)
+                          return `Player Score: ${++playerScore} \nComputer Score: ${computerScore}`
+
+            } else {
+                alert(`YOU LOST!!!!! \n${computerInput} beats ${playerInput}`)
+                          return `Player Score: ${playerScore} \nComputer Score: ${++computerScore}`
+            }
+        }
+
+     
+
+        game();
+    </script>
+</body>
+</html>

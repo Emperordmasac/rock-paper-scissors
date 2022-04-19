@@ -4,11 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap" rel="stylesheet">
     <title>Rock || Paper || Scissors</title>
 </head>
 <body>
     <div class="container">
-        Rock || Paper || Scissors
+       <h1 class="container__title">The Game Of The Century</h1>
+       <p class="desc1">In a Galaxy far far away.... </p>
+       <p class="desc2">The Battle To Determine The Ruler Of The Galaxy</p>
+       <p class="cta">Pick Your Weapon</p>
+
+       <!-- hero -->
+       <div class="container__game">
+            <div class="game__buttons">
+                <div id="rock" class="button">
+                    <img src="./rock.png" alt='rock' />
+                </div>
+                <div id="paper" class="button">
+                    <img src="./paper.png" alt='paper' />
+                </div>
+                <div id="scissors" class="button">
+                    <img src="./scissors.png" alt='scissors' />
+                </div>
+            </div>
+       </div>
+
+       <!-- Score Board -->
+       <div class="score__board">
+           <p class="label">Me</p>
+           <p class="label">Opponent</p>
+       </div>
+
+       <!-- Score Container -->
+       <div class="score__container">
+           <div id="yourScore" class="score">0</div>
+           <div id="opponentScore" class="score">0</div>
+       </div>
+
+       <!-- Display Score  -->
+       <div class="scoreDisplay"></div>
     </div>
     <script src="./app.js"></script>
 </body>
