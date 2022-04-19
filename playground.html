@@ -49,24 +49,24 @@
                 collectInput();
             }
         
-            //display the result in console
-            // console.log(`>>> ${declareResult()}`)
+          //  display the result in console
+            console.log(`>>> ${declareResult()}`)
 
-            // A function to declare the winner at the end of 5 games 
-            // function declareResult() {
-            //     if(playerScore===computerScore) {
-            //         alert(`TIE GAME \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`)
-            //         return `TIE GAME \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`
-            //     }
-            //     else if (playerScore > computerScore) {
-            //         alert(`GAME WON \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`)
-            //         return `GAME WON \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`
-            //     }
-            //     else {
-            //         alert(`GAME LOST \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`)
-            //         return `GAME LOST \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`
-            //     }
-            // }
+           // A function to declare the winner at the end of 5 games 
+            function declareResult() {
+                if(playerScore===computerScore) {
+                    alert(`TIE GAME \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`)
+                    return `TIE GAME \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`
+                }
+                else if (playerScore > computerScore) {
+                    alert(`GAME WON \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`)
+                    return `GAME WON \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`
+                }
+                else {
+                    alert(`GAME LOST \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`)
+                    return `GAME LOST \nPlayer Score: ${playerScore} \nComputerScore: ${computerScore}`
+                }
+            }
         }
 
         //function tpo play ONE Round of the game
