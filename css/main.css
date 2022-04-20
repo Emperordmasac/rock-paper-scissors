@@ -79,6 +79,8 @@ body {
 
     /* min-height: 100vh; */
 }
+
+
 .dec__des {
     font-size: 50px;
     margin-bottom: 25px;
@@ -100,7 +102,3 @@ body {
     cursor: pointer;
     transform: scale(1.1);
 }
-
-/* .ghost {
-    display: none;
-} */

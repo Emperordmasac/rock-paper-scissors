@@ -2,19 +2,21 @@
 
 let computerInput;
 let playerInput;
-let computerScore;
-let playerScore;
+let computerScore = 0;
+let playerScore = 0;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 //DOM Query
 
 let buttons = document.querySelectorAll(".button");
+const trick = document.querySelectorAll(".button")
 const body = document.querySelector("body");
 const container = document.querySelector(".container__game");
 const displayResult = document.querySelector(".scoreDisplay");
 const declaration = document.querySelector(".dec__des")
 const GoAgain = document.querySelector(".retry__btn")
+const newPage = document.querySelector(".ghost");
 
 
 
@@ -26,7 +28,6 @@ buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const img = button.querySelector("img");
         playerInput = img.alt.toLowerCase();
-        console.log(playerInput)
 
         //note
         //on Each=h button click play a Round of game
@@ -34,11 +35,18 @@ buttons.forEach((button) => {
 
         //and also check if we have a winner
         //first to reach 5
-        if(playerScore == 5 || computerScore == 5) {
+        if(playerScore === 5 || computerScore === 5) {
             declareWinner();
+            setTimeout(function () {
+                resetGame()
+            }, 5000)
+            trick.setAttribute('style', "pointer-events: none")
+
         }
     });
 });
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -55,68 +63,70 @@ function oneRound(playerInput, computerInput) {
     computerInput = computerGame().toLowerCase();
     playerInput = playerInput.toLowerCase()
 
+    console.log(`>>>> ${playerInput}----${computerInput}`)
+
     if(playerInput == computerInput) {
         showResult("ITS A TIE");
-    } 
-    else if ((playerInput =='rock' && computerInput == 'scissors') || 
-    (playerInput == "paper" && computerInput == "rock") || 
-    (playerInput == 'scissors' && computerInput == "paper")) {
+    } else if (
+        (playerInput == 'rock' && computerInput == 'scissors') || 
+        (playerInput == "paper" && computerInput == "rock") || 
+        (playerInput == 'scissors' && computerInput == "paper")
+    ) {
         playerScore = ++playerScore;
         keepPlayerScore();
-        if(playerScore == 1) {
+        if(playerScore === 1) {
             showResult(
                 `HAHAHAHAH LUCKY LUCKY LUCKY
-                ${capitalLetter(playerInput)} beats ${capitalLetter(computerInput)}
+                \n${capitalLetter(playerInput)} beats ${capitalLetter(computerInput)}
             `)
-        } else if(playerScore == 2) {
+        } else if(playerScore === 2) {
             showResult(
                 `HAHAHAHAH YOU ARE STILL LUCKY HUMAN!!!!
-                ${capitalLetter(playerInput)} beats ${capitalLetter(computerInput)}
+                \n${capitalLetter(playerInput)} beats ${capitalLetter(computerInput)}
             `)
-        } else if(playerScore == 3) {
+        } else if(playerScore === 3) {
             showResult(
                 `HAHAHAHAH DO YOU REALLY THINK YOU HAVE A CHANCE HUMAN!!!
-                ${capitalLetter(playerInput)} beats ${capitalLetter(computerInput)}
+                \n${capitalLetter(playerInput)} beats ${capitalLetter(computerInput)}
             `)
-        } else if(playerScore == 4) {
+        } else if(playerScore === 4) {
             showResult(
                 `HAHAHAHAH TIME TO BRING IN THE BIG GUNS!!!
-                ${capitalLetter(playerInput)} beats ${capitalLetter(computerInput)}
+                \n${capitalLetter(playerInput)} beats ${capitalLetter(computerInput)}
             `)
         } else {
             showResult(
                 `HAHAHAHAH THIS IS NOT THE END \nWE WILL BE BACK!!!!!
-                ${capitalLetter(playerInput)} beats ${capitalLetter(computerInput)}
+                \n${capitalLetter(playerInput)} beats ${capitalLetter(computerInput)}
             `)
         }
-    }
-    else {
+    }else {
         computerScore = ++computerScore;
         keepCpuScore();
-        if(computerScore == 1) {
+        if(computerScore === 1) {
             showResult(
                 `HAHAHAHAH THIS IS JUST WARM UP
-                ${capitalLetter(computerInput)} beats ${capitalLetter(playerInput)}
+                \n${capitalLetter(computerInput)} beats ${capitalLetter(playerInput)}
             `)
-        } else if(computerScore == 2) {
+        } else if(computerScore === 2) {
             showResult(
                 `HAHAHAHAH AM NOT EVEN TRYING!!!!
-                ${capitalLetter(computerInput)} beats ${capitalLetter(playerInput)}
+                \n${capitalLetter(computerInput)} beats ${capitalLetter(playerInput)}
             `)
-        } else if(computerScore == 3) {
+        } else if(computerScore === 3) {
             showResult(
                 `HAHAHAHAH OK LET ME CLOSE ONE EYE, THIS IS TOO EASY
-                ${capitalLetter(computerInput)} beats ${capitalLetter(playerInput)}
+                \n${capitalLetter(computerInput)} beats ${capitalLetter(playerInput)}
             `)
-        } else if(computerScore == 4) {
+        } else if(computerScore === 4) {
             showResult(
                 `HAHAHAHAH LUCKY LUCKY LUCKY
-                ${capitalLetter(computerScore)} beats ${capitalLetter(playerInput)}
+                \n${capitalLetter(computerInput)} beats ${capitalLetter(playerInput)}
             `)
         } else {
             showResult(
                 `HAHAHAHAH JUST OBEDIENTLY STAY THERE AND BE EATEN HAHAHAHAH!!!!!!
-                ${capitalLetter(computerInput)} beats ${capitalLetter(playerInput)}
+                \n${capitalLetter(computerInput)} beats ${capitalLetter(playerInput)}
             `)
         }
     }
@@ -136,6 +146,7 @@ function declareWinner() {
     else {
         declaration.textContent =  `YOU LOST!!!! ||  HAHAHAHAH, KILL THEM ALL`
     }
+
 }
 //3
 function keepPlayerScore() {
@@ -149,4 +160,13 @@ function keepCpuScore() {
 //4
 function capitalLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+//5
+function resetGame() {
+    displayResult.textContent = ""
+    playerScore = 0;
+    computerScore = 0;
+    declaration.textContent = ""
+    keepCpuScore()
+    keepPlayerScore()
 }
