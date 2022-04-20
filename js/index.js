@@ -9,7 +9,7 @@ let playerScore;
 
 //DOM Query
 
-let buttons = document.querySelector(".button");
+let buttons = document.querySelectorAll(".button");
 const body = document.querySelector("body");
 const container = document.querySelector(".container__game");
 const displayResult = document.querySelector(".scoreDisplay");
@@ -30,7 +30,7 @@ buttons.forEach((button) => {
 
         //note
         //on Each=h button click play a Round of game
-        omRound(playerInput, computerInput)
+        oneRound(playerInput, computerInput)
 
         //and also check if we have a winner
         //first to reach 5
